@@ -3,8 +3,6 @@
 @submodule ember-htmlbars
 */
 
-import { get } from "ember-metal/property_get";
-
 /**
   `{{view}}` inserts a new instance of an `Ember.View` into a template passing its
   options to the `Ember.View`'s `create` method and using the supplied block as
@@ -182,9 +180,9 @@ import { get } from "ember-metal/property_get";
 */
 
 export default function view(params, hash, options) {
-  if (this.yield) {
+  if (hash.layout) {
+    this.withLayout(hash.layout, hash.self);
+  } else if (this.yield) {
     this.yield();
-  } else {
-    this.withLayout(get(hash.view, 'template'), hash.view);
   }
 }
