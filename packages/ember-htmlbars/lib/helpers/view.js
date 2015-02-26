@@ -181,7 +181,7 @@
 
 export default function view(params, hash, options) {
   if (hash.layout) {
-    this.withLayout(hash.layout, hash.self);
+    this.yieldIn(hash.layout, hash.self);
   } else if (this.yield) {
     this.yield();
   }
