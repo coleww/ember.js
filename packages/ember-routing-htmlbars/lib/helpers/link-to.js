@@ -178,7 +178,7 @@ import 'ember-htmlbars';
   ```javascript
   App.Router.map(function() {
     this.resource("photoGallery", {path: "hamster-photos/:photo_id"}, function() {
-      this.route("comment", {path: "comments/:comment_id"});
+      this.route("comment", {path: "comment/:comment_id"});
     });
   });
   ```
